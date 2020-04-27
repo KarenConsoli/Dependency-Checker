@@ -37,10 +37,10 @@ namespace DependencyCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.ReadWhereList<DependencyModel>(modelo))
+                foreach (var item in bd.ReadWhereList<DependencyModel>(modelo))
                 {
 
-                    lista.Add(iMapper.Map<object, DependencyModel>(bitacora));
+                    lista.Add(iMapper.Map<object, DependencyModel>(item));
                 }
 
             }
@@ -69,10 +69,10 @@ namespace DependencyCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.ReadLike<DependencyModel>(modelo))
+                foreach (var item in bd.ReadLike<DependencyModel>(modelo))
                 {
 
-                    lista.Add(iMapper.Map<object, DependencyModel>(bitacora));
+                    lista.Add(iMapper.Map<object, DependencyModel>(item));
                 }
 
             }
@@ -103,10 +103,10 @@ namespace DependencyCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.Read<DependencyModel>(new DependencyModel()))
+                foreach (var item in bd.Read<DependencyModel>(new DependencyModel()))
                 {
 
-                    lista.Add(iMapper.Map<object, DependencyModel>(bitacora));
+                    lista.Add(iMapper.Map<object, DependencyModel>(item));
                 }
 
             }

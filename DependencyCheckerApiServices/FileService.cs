@@ -37,10 +37,10 @@ namespace FileCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.ReadWhereList<FileModel>(modelo))
+                foreach (var item in bd.ReadWhereList<FileModel>(modelo))
                 {
 
-                    lista.Add(iMapper.Map<object, FileModel>(bitacora));
+                    lista.Add(iMapper.Map<object, FileModel>(item));
                 }
 
             }
@@ -69,10 +69,10 @@ namespace FileCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.ReadLike<FileModel>(modelo))
+                foreach (var item in bd.ReadLike<FileModel>(modelo))
                 {
 
-                    lista.Add(iMapper.Map<object, FileModel>(bitacora));
+                    lista.Add(iMapper.Map<object, FileModel>(item));
                 }
 
             }
@@ -103,10 +103,10 @@ namespace FileCheckerApiServices
 
             try
             {
-                foreach (var bitacora in bd.Read<FileModel>(new FileModel()))
+                foreach (var item in bd.Read<FileModel>(new FileModel()))
                 {
 
-                    lista.Add(iMapper.Map<object, FileModel>(bitacora));
+                    lista.Add(iMapper.Map<object, FileModel>(item));
                 }
 
             }

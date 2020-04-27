@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DependencyCheckerApiServices
 {
-    class FileDependencService
+   public  class FileDependencService
     {
         public class FileDependencyService
         {
@@ -40,10 +40,10 @@ namespace DependencyCheckerApiServices
 
                 try
                 {
-                    foreach (var bitacora in bd.ReadWhereList<FileDependencyModel>(modelo))
+                    foreach (var item in bd.ReadWhereList<FileDependencyModel>(modelo))
                     {
 
-                        lista.Add(iMapper.Map<object, FileDependencyModel>(bitacora));
+                        lista.Add(iMapper.Map<object, FileDependencyModel>(item));
                     }
 
                 }
@@ -72,10 +72,10 @@ namespace DependencyCheckerApiServices
 
                 try
                 {
-                    foreach (var bitacora in bd.ReadLike<FileDependencyModel>(modelo))
+                    foreach (var item in bd.ReadLike<FileDependencyModel>(modelo))
                     {
 
-                        lista.Add(iMapper.Map<object, FileDependencyModel>(bitacora));
+                        lista.Add(iMapper.Map<object, FileDependencyModel>(item));
                     }
 
                 }
@@ -106,10 +106,10 @@ namespace DependencyCheckerApiServices
 
                 try
                 {
-                    foreach (var bitacora in bd.Read<FileDependencyModel>(new FileDependencyModel()))
+                    foreach (var item in bd.Read<FileDependencyModel>(new FileDependencyModel()))
                     {
 
-                        lista.Add(iMapper.Map<object, FileDependencyModel>(bitacora));
+                        lista.Add(iMapper.Map<object, FileDependencyModel>(item));
                     }
 
                 }
