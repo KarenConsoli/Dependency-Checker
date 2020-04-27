@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyCheckerApi", "DependencyCheckerApi\DependencyCheckerApi.csproj", "{781E7611-DA83-40EC-BEBD-B163BEA6AE3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyCheckerApi", "DependencyCheckerApi\DependencyCheckerApi.csproj", "{781E7611-DA83-40EC-BEBD-B163BEA6AE3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyCheckerApiModels", "DependencyCheckerApiModels\DependencyCheckerApiModels.csproj", "{FC9929D1-D9A4-4635-A213-0259C717FEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyCheckerApiModels", "DependencyCheckerApiModels\DependencyCheckerApiModels.csproj", "{FC9929D1-D9A4-4635-A213-0259C717FEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDConnection", "BDConnection\BDConnection.csproj", "{02FABC46-6AA1-400E-8BC2-54CC0C34E9EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDConnection", "BDConnection\BDConnection.csproj", "{02FABC46-6AA1-400E-8BC2-54CC0C34E9EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyCheckerApiServices", "DependencyCheckerApiServices\DependencyCheckerApiServices.csproj", "{7217A205-95D6-446B-85E2-E9FC0EC84826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyCheckerApiServices", "DependencyCheckerApiServices\DependencyCheckerApiServices.csproj", "{7217A205-95D6-446B-85E2-E9FC0EC84826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyCheckerContainerGenerator", "DependencyCheckerContainerGenerator\DependencyCheckerContainerGenerator.csproj", "{EB71502A-FB51-4A2E-AC86-F3369089BC85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7217A205-95D6-446B-85E2-E9FC0EC84826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7217A205-95D6-446B-85E2-E9FC0EC84826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7217A205-95D6-446B-85E2-E9FC0EC84826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB71502A-FB51-4A2E-AC86-F3369089BC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB71502A-FB51-4A2E-AC86-F3369089BC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB71502A-FB51-4A2E-AC86-F3369089BC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB71502A-FB51-4A2E-AC86-F3369089BC85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
