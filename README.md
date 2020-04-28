@@ -66,10 +66,10 @@ The code of a Rest API with the following functionalities:
 
 #### SQL Server Seeding ####
 
-1. Create a Database called DependencyChecker
-2. Execute the DependencyCheckerSchema.script.sql (located in *"./DependencyCheckerApi/DependencyCheckerDatabase"*) in the created Database
-3. Locate the Seeding Script DependencyCheckerSeeding.py in *"./DependencyCheckerApi/DependencyCheckerSeeding"*. 
-4. Execute the Script for the First Time. 
+* Create a Database called DependencyChecker
+* Execute the DependencyCheckerSchema.script.sql (located in *"./DependencyCheckerApi/DependencyCheckerDatabase"*) in the created Database
+* Locate the Seeding Script DependencyCheckerSeeding.py in *"./DependencyCheckerApi/DependencyCheckerSeeding"*. 
+* Execute the Script for the First Time. 
 
 ```
 CD [./DependencyCheckerApi/DependencyCheckerSeeding folder]
@@ -77,13 +77,13 @@ CD [./DependencyCheckerApi/DependencyCheckerSeeding folder]
 python DependencyCheckerSeeding.py
 ``` 
 
-5. The result is the connectionstring.json file located in *"./DependencyCheckerApi/DependencyCheckerSeeding"*. In this file you should write your connection credentials.
+* The result is the connectionstring.json file located in *"./DependencyCheckerApi/DependencyCheckerSeeding"*. In this file you should write your connection credentials.
 
 ``` 
 {"server": "localhost", "database": "DependencyChecker", "user": "root", "password": "root"}
 
 ``` 
-6. Execute the Seeding Script Again with the next command:
+* Execute the Seeding Script Again with the next command:
 
 ```
 CD [./DependencyCheckerApi/DependencyCheckerSeeding folder]
@@ -95,23 +95,23 @@ Seed Example:
 ```
 python DependencyCheckerSeeding.py --folder C:\Proyectos\DependencyChecker\src --ext cpp,hpp,h,c
 ``` 
-7. The script will finish with your database seeded.
+* The script will finish with your database seeded.
 
 #### SQL Server Port Configuration ####
 
 The Sql Server will run on the machine locally, not inside the containers, therefore it is necessary to open its tcp port so that it can be visible by them.
 
-1. Create an Inbound and Outbound TCP 1433 Port rule in yout firewall to allow all connections.
-2. Open your SQL Server Configuration Manager.
-3. Go to *"SQL Server Configuration Manger (local)/SQL Server Network Configuration/Protocols for SQLEXPRESS"* and double click "TCP/IP" option.
-4. In the tab "Protocol" go to *"General/Enabled"* and turned to True.
-5. In the tab "IP Addresses" go to *"IPALL/TCP Port"* (it is at the bottom) and write 1433 and go to *"IPALL/TCP Dynamic Ports"* and delete all the data.
-6. Restart SQL SERVER Service
+* Create an Inbound and Outbound TCP 1433 Port rule in yout firewall to allow all connections.
+* Open your SQL Server Configuration Manager.
+* Go to *"SQL Server Configuration Manger (local)/SQL Server Network Configuration/Protocols for SQLEXPRESS"* and double click "TCP/IP" option.
+* In the tab "Protocol" go to *"General/Enabled"* and turned to True.
+* In the tab "IP Addresses" go to *"IPALL/TCP Port"* (it is at the bottom) and write 1433 and go to *"IPALL/TCP Dynamic Ports"* and delete all the data.
+* Restart SQL SERVER Service
 
 #### SQL Server API Configuration ####
 
-1. Go to *"./DependencyCheckerApi/DependencyCheckerAPI"* and open appsettings.json. 
-2. Change your User and Password Credential, but you DONT HAVE to change "ServerName".
+* Go to *"./DependencyCheckerApi/DependencyCheckerAPI"* and open appsettings.json. 
+* Change your User and Password Credential, but you DONT HAVE to change "ServerName".
 ```
   "SQLServer": {
     "ServerName": "host.docker.internal,1433",
