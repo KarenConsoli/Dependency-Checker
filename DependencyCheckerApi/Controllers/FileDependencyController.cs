@@ -7,6 +7,7 @@ using DependencyCheckerApiServices;
 using FileCheckerApiServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using static DependencyCheckerApiServices.FileDependencService;
 
 namespace DependencyCheckerApi.Controllers
@@ -17,11 +18,12 @@ namespace DependencyCheckerApi.Controllers
     {
     
 
-        private readonly ILogger<FileDependencyController> _logger;
+      
 
-        public FileDependencyController(ILogger<FileDependencyController> logger)
+
+        public FileDependencyController()
         {
-            _logger = logger;
+            
         }
 
         
@@ -29,7 +31,7 @@ namespace DependencyCheckerApi.Controllers
 
         [HttpGet]
         [Route("GetDependencyFromFile")]
-        public IEnumerable<FileDependencyViewModel> GetDependencyFromFile(string fileName)
+        public string GetDependencyFromFile(string fileName)
         {
 
             var listDependencies = new List<FileDependencyViewModel>();
@@ -91,7 +93,7 @@ namespace DependencyCheckerApi.Controllers
 
             }
 
-            return listDependencies.ToArray();
+            return JsonConvert.SerializeObject(listDependencies.ToArray());
 
         }
 
@@ -100,7 +102,7 @@ namespace DependencyCheckerApi.Controllers
         [HttpGet]
         [Route("GetFileFromDependency")]
 
-        public IEnumerable<FileDependencyViewModel> GetFileFromDependency(string dependencyName)
+        public string GetFileFromDependency(string dependencyName)
         {
 
             
@@ -159,7 +161,7 @@ namespace DependencyCheckerApi.Controllers
 
             }
 
-            return listDependencies.ToArray();
+            return JsonConvert.SerializeObject(listDependencies.ToArray());
 
         }
     }
