@@ -4,11 +4,16 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using Timer = System.Threading.Timer;
 
 namespace DependencyCheckerContainerGenerator
 {
     class Program
     {
+
+        private static string loading = null;
+        private static Timer tCsmaCD;
         static void Main(string[] args)
         {
           
@@ -22,10 +27,14 @@ namespace DependencyCheckerContainerGenerator
             System.Console.BackgroundColor = ConsoleColor.Black;
             System.Console.ForegroundColor = ConsoleColor.White;
 
+            Timer t = new Timer(TimerCallback, null, 0, 500);
+           
+
 
             var directory = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
             var appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             var user = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).Parent;
+
 
 
             Console.WriteLine();
@@ -33,8 +42,9 @@ namespace DependencyCheckerContainerGenerator
 
             Console.WriteLine("Deleting Old Dependency Checker Instances");
             System.Console.ForegroundColor = ConsoleColor.White;
-
             Console.WriteLine();
+
+            loading = "1";
 
             var queryDelete = @"docker ps --filter ancestor=dependencycheckerapi:dev  --format ""{{.ID}}""";
 
@@ -76,14 +86,14 @@ namespace DependencyCheckerContainerGenerator
             System.Console.BackgroundColor = ConsoleColor.Black;
             System.Console.ForegroundColor = ConsoleColor.White;
 
-
+            loading = null;
             Console.WriteLine();
             Console.WriteLine("How many Container Instancies from Dependency Check API do you want to create?");
             var response = Console.ReadLine();
+            loading = "1";
 
-            
-            
-           var listContainers = new List<ContainerModel>();
+
+            var listContainers = new List<ContainerModel>();
 
             int n;
             bool isNumeric = int.TryParse(response, out n);
@@ -139,7 +149,7 @@ namespace DependencyCheckerContainerGenerator
 
                 }
 
-
+                loading = null;
                 Console.Clear();
 
 
@@ -180,9 +190,10 @@ namespace DependencyCheckerContainerGenerator
                 }
 
                 Console.WriteLine();
-                Console.WriteLine("Press Enter to Finish all Instances");
+                Console.WriteLine("Press "+( n+1) + " Enters to Finish all Instances");
                 Console.ReadLine();
-
+               
+                loading = "1";
                 Console.Clear();
                 Console.WriteLine();
                 System.Console.ForegroundColor = ConsoleColor.Yellow;
@@ -197,10 +208,12 @@ namespace DependencyCheckerContainerGenerator
                 }
 
                 Console.WriteLine();
+
+                loading = null;
                 System.Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("All Instances were deleted");
                 System.Console.ForegroundColor = ConsoleColor.White;
-
+                
                 Console.ReadLine();
 
                 Environment.Exit(0);
@@ -237,6 +250,9 @@ namespace DependencyCheckerContainerGenerator
 
             return tcs.Task;
         }
+
+       
+
         static public string ExecuteProcess(string query)
         {
             Console.WriteLine();
@@ -270,6 +286,13 @@ namespace DependencyCheckerContainerGenerator
             Console.WriteLine();
             return line;
         }
-
+        private static void TimerCallback(Object o)
+        {
+            if (loading != null)
+            {
+                // Display the date/time when this method got called.
+                Console.Write(".");
+            }
+        }
     }
 }
