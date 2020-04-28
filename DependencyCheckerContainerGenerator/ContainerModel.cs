@@ -14,6 +14,16 @@ namespace DependencyCheckerContainerGenerator
 
         public string Created { get; set; }
 
+        public string Status { get; set; }
+
+        public string Ports { get; set; }
+
+        public string Names { get; set; }
+
+        public string PortSSL { get; set; }
+
+        public string Port { get; set; }
+
 
     }
 }
