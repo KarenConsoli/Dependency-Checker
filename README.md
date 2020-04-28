@@ -55,6 +55,7 @@ The code of a Rest API with the following functionalities:
 ## Getting Started ##
 
 ### Software Requirements ###
+* [Python 3.8.2](https://www.python.org/downloads/)
 
 * [SQL Server Express 2017 or Above](https://www.microsoft.com/es-es/download/details.aspx?id=55994)
 
